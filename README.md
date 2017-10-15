@@ -2,20 +2,8 @@
 
 go
 ```go
-package main
-
-import "fmt"
-
-type Dog struct {
-}
-
-func (d *Dog) Say() {
-    fmt.Println("Woof!")
-}
-
-func main() {
-    d := Dog{}
-    d.Say()    // print `Woof!`
+func (r *HttpResponse) updateStatus(new_status int) {
+    r.status_code = new_status
 }
 ```
 og
