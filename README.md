@@ -2,6 +2,9 @@
 
 go
 ```go
+// A Path is a journey connecting the points with straight lines.
+type Path []Point
+
 // Distance returns the distance traveled along the path.
 func (path Path) Distance() float64 {
     sum := 0.0
