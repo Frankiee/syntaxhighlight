@@ -2,12 +2,14 @@
 
 321
 ```go
-func sum(vals ...int) int {
-    total := 0
-    for _, val := range vals {
-        total += val
+package ioutil
+func ReadFile(filename string) ([]byte, error) {
+    f, err := os.Open(filename)
+    if err != nil {
+        return nil, err
     }
-    return total
+    defer f.Close()
+    return ReadAll(f)
 }
 ```
 123
