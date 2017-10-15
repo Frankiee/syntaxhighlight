@@ -22,6 +22,7 @@ Remember you should set the environment variables correctly (GOPATH and PATH)
 
 The function [`AsHTML(src []byte, options ...Option) ([]byte, error)`](https://sourcegraph.com/sourcegraph.com/sourcegraph/syntaxhighlight@master/.GoPackage/sourcegraph.com/sourcegraph/syntaxhighlight/.def/AsHTML) returns an HTML-highlighted version of `src`. The input source code can be in any language; the lexer is language independent. An `OrderedList()` option can be passed to produce an `<ol>...</ol>`-wrapped list to display line numbers.
 
+321
 ```go
 value, ok := cache.Lookup(key)
 if !ok {
