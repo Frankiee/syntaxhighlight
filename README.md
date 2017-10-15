@@ -3,7 +3,7 @@
 go
 ```go
 type ReadWriter interface {
-    Reader
+    Read(p []byte) (n int, err error)
     Writer
 }
 ```
