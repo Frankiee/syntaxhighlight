@@ -2,8 +2,9 @@
 
 321
 ```go
-type error interface {
-    Error() string
+resp, err := http.Get(url)
+if err != nil {
+    return nil, err
 }
 ```
 123
