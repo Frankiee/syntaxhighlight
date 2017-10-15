@@ -12,5 +12,13 @@ func (path Path) Distance() float64 {
     }
     return sum
 }
+
+perim := Path{
+    {1, 1},
+    {5, 1},
+    {5, 4},
+    {1, 1},
+}
+fmt.Println(perim.Distance()) // "12"
 ```
 og
