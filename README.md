@@ -2,9 +2,8 @@
 
 321
 ```go
-// (In function main.)
-if err := WaitForServer(url); err != nil {
-    log.Fatalf("Site is down: %v\n", err)
+if err := Ping(); err != nil {
+    log.Printf("ping failed: %v; networking disabled", err)
 }
 ```
 123
