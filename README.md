@@ -2,9 +2,7 @@
 
 go
 ```go
-type ReadWriter interface {
-    Read(p []byte) (n int, err error)
-    Writer
-}
+// *bytes.Buffer must satisfy io.Writer
+var _ io.Writer = (*bytes.Buffer)(nil)
 ```
 og
