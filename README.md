@@ -9,12 +9,12 @@ import "fmt"
 type Dog struct {
 }
 
-func (d Dog) Say() {
+func (d *Dog) Say() {
     fmt.Println("Woof!")
 }
 
 func main() {
-    d := &Dog{}
+    d := Dog{}
     d.Say()    // print `Woof!`
 }
 ```
