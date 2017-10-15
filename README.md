@@ -1,11 +1,16 @@
 # syntaxhighlight
 
-321
+go
 ```go
-func triple(x int) (result int) {
-    defer func() { result += x }()
-    return double(x)
+// Distance returns the distance traveled along the path.
+func (path Path) Distance() float64 {
+    sum := 0.0
+    for i := range path {
+        if i > 0 {
+            sum += path[i-1].Distance(path[i])
+        }
+    }
+    return sum
 }
-fmt.Println(triple(4)) // "12"
 ```
-123
+og
