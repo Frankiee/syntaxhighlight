@@ -2,26 +2,20 @@
 
 go
 ```go
-// A Path is a journey connecting the points with straight lines.
-type Path []Point
+package main
 
-// Distance returns the distance traveled along the path.
-func (path Path) Distance() float64 {
-    sum := 0.0
-    for i := range path {
-        if i > 0 {
-            sum += path[i-1].Distance(path[i])
-        }
-    }
-    return sum
+import "fmt"
+
+type Dog struct {
 }
 
-perim := Path{
-    {1, 1},
-    {5, 1},
-    {5, 4},
-    {1, 1},
+func (d Dog) Say() {
+    fmt.Println("Woof!")
 }
-fmt.Println(perim.Distance()) // "12"
+
+func main() {
+    d := &Dog{}
+    d.Say()
+}
 ```
 og
