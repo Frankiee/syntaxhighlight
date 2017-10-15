@@ -15,7 +15,7 @@ func (d Dog) Say() {
 
 func main() {
     d := &Dog{}
-    d.Say()
+    d.Say()    // print `Woof!`
 }
 ```
 og
