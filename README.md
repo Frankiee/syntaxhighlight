@@ -4,10 +4,10 @@ go
 ```go
 var i interface{} = "hello"
 
-s := i.(string)
-fmt.Println(s)    // `hello`
+s, ok := i.(string)
+fmt.Println(s, ok)     // `hello true`
 
-f = i.(float64)   // panic: interface conversion: interface {} is string, not float64
-fmt.Println(f)
+f, ok := i.(float64)
+fmt.Println(f, ok)     // `0 false`
 ```
 og
