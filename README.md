@@ -2,7 +2,12 @@
 
 go
 ```go
-// *bytes.Buffer must satisfy io.Writer
-var _ io.Writer = (*bytes.Buffer)(nil)
+var i interface{} = "hello"
+
+s := i.(string)
+fmt.Println(s)    // `hello`
+
+f = i.(float64)   // panic: interface conversion: interface {} is string, not float64
+fmt.Println(f)
 ```
 og
