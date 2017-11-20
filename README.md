@@ -32,3 +32,22 @@ func fib(x int) int {
 }
 ```
 og
+
+
+python
+```python
+import threading
+__tls__ = threading.local()
+
+
+def set_current_request(request):
+    __tls__.request = request
+
+
+def get_current_request():
+    try:
+        return __tls__.request
+    except AttributeError:
+        return None
+```
+python
