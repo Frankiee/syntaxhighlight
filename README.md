@@ -36,6 +36,10 @@ og
 
 tf
 ```tf
+######################
+# Custom IAM Policies
+######################
+
 resource "aws_iam_policy" "help-center-stage-cs-monitoring" {
     name = "help-center-stage-cs-monitoring"
     policy = <<EOF
