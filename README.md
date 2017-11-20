@@ -36,66 +36,21 @@ og
 
 tf
 ```tf
-######################
-# Custom IAM Policies
-######################
 
-resource "aws_iam_policy" "help-center-stage-cs-monitoring" {
+#####################################
+# IAM Policy Attachment
+#####################################
+
+resource "aws_iam_policy_attachment" "help-center-stage-cs-monitoring" {
     name = "help-center-stage-cs-monitoring"
-    policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::cs-monitoring-stage"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject", "s3:ListObject", "s3:PutObject", "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::cs-monitoring-stage/*"
-            ]
-        }
-    ]
-}
-EOF
+    roles = ["${aws_iam_role.help-center-stage.name}"]
+    policy_arn = "${aws_iam_policy.help-center-stage-cs-monitoring.arn}"
 }
 
-resource "aws_iam_policy" "help-center-prod-cs-monitoring" {
+resource "aws_iam_policy_attachment" "help-center-prod-cs-monitoring" {
     name = "help-center-prod-cs-monitoring"
-    policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::cs-monitoring-prod"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject", "s3:ListObject", "s3:PutObject", "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::cs-monitoring-prod/*"
-            ]
-        }
-    ]
-}
-EOF
+    roles = ["${aws_iam_role.help-center-prod.name}"]
+    policy_arn = "${aws_iam_policy.help-center-prod-cs-monitoring.arn}"
 }
 ```
 tf
