@@ -36,25 +36,62 @@ og
 
 tf
 ```tf
-##############################
-# S3 Buckets
-##############################
-resource "aws_s3_bucket" "cs-monitoring-prod" {
-    bucket = "cs-monitoring-prod"
-    acl = "private"
-
-    tags {
-        Environment = "prod"
-    }
+resource "aws_iam_policy" "help-center-stage-cs-monitoring" {
+    name = "help-center-stage-cs-monitoring"
+    policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cs-monitoring-stage"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject", "s3:ListObject", "s3:PutObject", "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cs-monitoring-stage/*"
+            ]
+        }
+    ]
+}
+EOF
 }
 
-resource "aws_s3_bucket" "cs-monitoring-stage" {
-    bucket = "cs-monitoring-stage"
-    acl = "private"
-
-    tags {
-        Environment = "stage"
-    }
+resource "aws_iam_policy" "help-center-prod-cs-monitoring" {
+    name = "help-center-prod-cs-monitoring"
+    policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cs-monitoring-prod"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject", "s3:ListObject", "s3:PutObject", "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::cs-monitoring-prod/*"
+            ]
+        }
+    ]
+}
+EOF
 }
 ```
 tf
